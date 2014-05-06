@@ -9,7 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-puppet.box'
   config.vm.hostname = 'hackertribe.startupchile.vm'
   config.vm.network :private_network, ip: "192.168.33.10"
-  
+  config.vm.synced_folder "var/www/html", "/var/www/html", create: true
+
 
   config.vm.provision :shell do |shell|
   shell.inline = "mkdir -p /etc/puppet/modules;
